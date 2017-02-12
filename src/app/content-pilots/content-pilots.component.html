@@ -11,8 +11,8 @@
           </div>
         </li>
       </ul>
-      <ul [ngClass]="{'hide-tag':!drivers}" class="collapsible" data-collapsible="accordion">
-        <li *ngFor="let driver of drivers; let i=index;">
+      <ul *ngIf="drivers" [ngClass]="{'hide-tag':!drivers}" class="collapsible" data-collapsible="accordion">
+        <li *ngFor="let driver of drivers | contentFilter:filt_selector:filt; let i=index;">
           <div (click)="getDriverResults(driver.Driver.driverId)" class="collapsible-wrapp valign-wrapper collapsible-header">
             <span class="driver-pos">{{driver.position}}º</span><span class="driver-points">{{driver.points}}</span><span class="driver-name">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</span><span class="constructor-name">{{driver.Constructors[0].name}}</span><span class="driver-wins">{{driver.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
           </div>

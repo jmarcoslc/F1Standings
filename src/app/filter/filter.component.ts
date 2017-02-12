@@ -1,6 +1,7 @@
 declare var $: any;
 import { Component, OnInit } from '@angular/core';
 import { AjaxService } from '../ajax.service';
+import { FilterService } from '../filter.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,14 +16,13 @@ export class FilterComponent implements OnInit {
   private current_season:number;
   private max_season_number:number;
   private min_season_number:number;
+  private filtr_term:string;
 
-  constructor(private APIF1:AjaxService) {
+  constructor(private APIF1:AjaxService, private Filter:FilterService) {
     this.max_season_number = this.APIF1.getMaxSeasonNumber();
     this.min_season_number = this.APIF1.getMinSeasonNumber();
     this.seasons = this.APIF1.getSeasonsAvailable();
     this.current_season = this.APIF1.getCurrentSeasonNumberNumber();
-    //setInterval(()=>this.setNewSeason(), 1000); 
-
   }
 
   ngOnInit() {
@@ -30,6 +30,10 @@ export class FilterComponent implements OnInit {
 
   setNewSeason() {
     this.APIF1.setCurrentSeasonNumber(this.current_season);
+  }
+
+  setNewFilterTerm() {
+    this.Filter.setFilterTerm(this.filtr_term);
   }
 
   ngAfterViewInit() {

@@ -39,7 +39,7 @@ export class AjaxService {
 
   initSeasons() {
   	//Initialize the seasons, from 1950
-  	for(let season=this.max_season_number; season>= this.min_season_number; season--) {
+  	for(let season=this.max_season_number; season >= this.min_season_number; season--) {
   		this.seasons_available.push(season);
   	}
   }
@@ -146,19 +146,19 @@ export class AjaxService {
   private ajaxGetAllDriverStandings(season:number=this.current_season_number) {
     this.ajax.get("http://ergast.com/api/f1/"+season+"/driverStandings.json")
       .map(response => response.json())
-    .subscribe( data => {this.season_driver_standings.next(data);console.log(data)});
+    .subscribe( data => {this.season_driver_standings.next(data);});
   }
 
   private ajaxGetTeams(season:number=this.current_season_number) {
     this.ajax.get("http://ergast.com/api/f1/"+season+"/constructorStandings.json")
       .map(response => response.json())
-    .subscribe( data => {this.teams.next(data);console.log(data)});
+    .subscribe( data => {this.teams.next(data);});
   }
 
   private ajaxGetSeasonTeamResults(season, team_id:string) {
     this.ajax.get("http://ergast.com/api/f1/"+season+"/constructors/"+team_id+"/results.json?limit=10000")
       .map(response => response.json())
-    .subscribe( data => {this.team_results.next(data);console.log(data)});
+    .subscribe( data => {this.team_results.next(data);});
   }
 
 }

@@ -1,6 +1,7 @@
 declare var $: any;
 import { Component, OnInit } from '@angular/core';
 import { AjaxService } from '../ajax.service';
+import { FilterService } from '../filter.service';
 
 @Component({
   selector: 'app-content-teams',
@@ -13,8 +14,13 @@ export class ContentTeamsComponent implements OnInit {
   private teams:any;
   private team_results:any;
   private current_season:number;
+  private filt = "";
+  private filt_selector = ["Constructor", "name"];
 
-  constructor(private APIF1:AjaxService) { 
+  constructor(private APIF1:AjaxService, private Filter:FilterService) {
+    this.Filter.getFilterTerm().subscribe(
+      filter_term => this.filt = filter_term
+    );
     this.APIF1.getCurrentSeasonNumber().subscribe(
       season => {this.current_season = season; this.getTeams();}
     );

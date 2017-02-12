@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+   outline: 0;
+}
+
 #bread {
 	margin: 20px 0px;
 	text-transform: capitalize;

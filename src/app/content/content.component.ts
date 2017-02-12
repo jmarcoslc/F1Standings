@@ -1,6 +1,8 @@
 declare var $: any;
 import { Component, OnInit } from '@angular/core';
 import { AjaxService } from '../ajax.service';
+import { FilterService } from '../filter.service';
+import { ContentFilterPipe } from '../content-filter.pipe';
 
 @Component({
   selector: 'app-seasons-content',
@@ -12,10 +14,15 @@ export class ContentSeasonsComponent implements OnInit {
   private current_season:number;
   private races:any;
   private race_info:any;
+  private filt = "";
+  private filt_selector = ["raceName"];
 
-  constructor(private APIF1:AjaxService) {
+  constructor(private APIF1:AjaxService, private Filter:FilterService) {
+    this.Filter.getFilterTerm().subscribe(
+      filter_term => this.filt = filter_term
+    );
     this.APIF1.getCurrentSeasonNumber().subscribe(
-      season => {console.log(this.APIF1.getCurrentSeasonNumber());this.current_season = season; this.getRaces();}
+      season => {this.current_season = season; this.getRaces();}
     );
   }
 
@@ -38,6 +45,7 @@ export class ContentSeasonsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    $('.collapsible').collapsible();
     this.APIF1.forceSubscribe();
   }
 
