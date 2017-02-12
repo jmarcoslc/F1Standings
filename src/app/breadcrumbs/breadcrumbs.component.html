@@ -1,4 +1,4 @@
-<nav id="bread">
+<nav *ngIf="!root" id="bread">
 	<div class="row nav-wrapper grey darken-4">
 		<breadcrumb class="col s12" prefix="Inicio" [useBootstrap]="false"></breadcrumb>
 	</div>

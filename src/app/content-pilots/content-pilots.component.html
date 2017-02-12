@@ -1,3 +1,6 @@
+<div class="container">
+  <app-breadcrumbs></app-breadcrumbs>
+</div>
 <app-filter></app-filter>
 <div class="container">
   <div class="row">
@@ -12,7 +15,7 @@
         </li>
       </ul>
       <ul *ngIf="drivers" [ngClass]="{'hide-tag':!drivers}" class="collapsible" data-collapsible="accordion">
-        <li *ngFor="let driver of drivers | contentFilter:filt_selector:filt; let i=index;">
+        <li (click)="setCollapse();" *ngFor="let driver of drivers | contentFilter:filt_selector:filt; let i=index;">
           <div (click)="getDriverResults(driver.Driver.driverId)" class="collapsible-wrapp valign-wrapper collapsible-header">
             <span class="driver-pos">{{driver.position}}º</span><span class="driver-points">{{driver.points}}</span><span class="driver-name">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</span><span class="constructor-name">{{driver.Constructors[0].name}}</span><span class="driver-wins">{{driver.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
           </div>
@@ -43,10 +46,9 @@
                           <th data-field="time">Vuelta rápida</th>
                       </tr>
                     </thead>
-
                     <tbody>
                       <tr *ngFor="let gp of driver_results; let i=index;">
-                        <td><span class="flag"><img src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country}}.jpg"></span>{{gp.raceName}}</td>
+                        <td><span class="flag"><img *ngIf="gp.Circuit.Location.country=='UAE'" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Abu_Dhabi.svg"><img *ngIf="gp.Circuit.Location.country!='UAE'" src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country.replace('UK','United_Kingdom').replace('USA','United_States')}}.jpg"></span>{{gp.raceName}}</td>
                         <td>{{gp.Results[0].position}}</td>
                         <td>+{{gp.Results[0].points}}</td>
                         <td>{{gp.Results[0].laps}}</td>

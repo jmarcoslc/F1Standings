@@ -18,13 +18,15 @@ import { ContentPilotsComponent } from './content-pilots/content-pilots.componen
 import { ContentTeamsComponent } from './content-teams/content-teams.component';
 import { ContentFilterPipe } from './content-filter.pipe';
 import { HomeComponent } from './home/home.component';
+import { Er404Component } from './er404/er404.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'inicio', component: HomeComponent },
     { path: 'temporadas', component: ContentSeasonsComponent },
     { path: 'pilotos', component: ContentPilotsComponent },
-    { path: 'equipos', component: ContentTeamsComponent }
+    { path: 'equipos', component: ContentTeamsComponent },
+    { path: '**', component: Er404Component }
 ];
 export const routing = RouterModule.forRoot(routes);
 
@@ -40,7 +42,8 @@ export const routing = RouterModule.forRoot(routes);
     ContentPilotsComponent,
     ContentTeamsComponent,
     ContentFilterPipe,
-    HomeComponent
+    HomeComponent,
+    Er404Component
   ],
   imports: [
     BrowserModule,

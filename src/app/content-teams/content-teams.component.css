@@ -21,7 +21,15 @@
 .team-name {
 	display: inline-block;
 	margin-left: 15px;
-	min-width: 15%;
+	min-width: 20%;
+}
+
+.team-name img {
+	position: relative;
+	height: 28px; 
+	top: 5px;
+	left: -5px;
+	margin-right: 10px;
 }
 
 .team-wins {

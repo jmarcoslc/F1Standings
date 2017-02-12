@@ -43,7 +43,12 @@ export class ContentTeamsComponent implements OnInit {
 
   }
 
+  setCollapse() {
+    $('.collapsible').collapsible();
+  }
+
   ngAfterViewInit() {
+    $('.collapsible').collapsible();
     this.APIF1.forceSubscribe();
   }
 

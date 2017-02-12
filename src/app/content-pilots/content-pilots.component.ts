@@ -42,6 +42,10 @@ export class ContentPilotsComponent implements OnInit {
   ngOnInit() {
   }
 
+  setCollapse() {
+    $('.collapsible').collapsible();
+  }
+
   ngAfterViewInit() {
     this.APIF1.forceSubscribe();
   }

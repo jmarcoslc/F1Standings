@@ -26,6 +26,7 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('select').material_select();
   }
 
   setNewSeason() {

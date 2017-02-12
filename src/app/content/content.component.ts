@@ -49,4 +49,8 @@ export class ContentSeasonsComponent implements OnInit {
     this.APIF1.forceSubscribe();
   }
 
+  setCollapse() {
+    $('.collapsible').collapsible();
+  }
+
 }
