@@ -1,3 +1,4 @@
+declare var $: any;
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,10 @@ export class MainMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+  	$(".button-collapse").sideNav();
   }
 
 }

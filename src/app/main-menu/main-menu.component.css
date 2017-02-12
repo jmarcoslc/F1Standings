@@ -1,3 +1,7 @@
+nav {
+	height: 64px;
+}
+
 #main-menu .active{
 	background-color: #424242;
 }
@@ -8,4 +12,22 @@
 
 #main-menu .brand-logo img {
 	max-width: 145px; 
+}
+
+#slide-nav-btn a.button-collapse {
+	cursor: pointer;
+	display: block;
+	padding: 0px 18px;
+	margin: 0px;
+	height: 64px;
+}
+
+#slide-nav-btn a i {
+	height: 64px;
+	padding-top: 5px;
+	font-size: 40px;
+}
+
+.userView {
+	height: 160px;
 }
