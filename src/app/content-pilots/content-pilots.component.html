@@ -10,14 +10,14 @@
       <ul [ngClass]="{'hide-tag':!drivers}" class="collapsible collap-head">
         <li>
           <div class="white-text grey darken-4 collapsible-wrapp valign-wrapper collapsible-header">
-            <span class="driver-pos">Posición</span><span class="driver-points">Puntos</span><span class="driver-name">Piloto</span><span class="constructor-name">Equipo</span><span class="driver-wins">Victorias</span>
+            <span class="driver-pos">Posición</span><span class="driver-points">Puntos</span><span class="driver-name">Piloto</span><span class="hide-on-small-only constructor-name">Equipo</span><span class="driver-wins">Victorias</span>
           </div>
         </li>
       </ul>
       <ul *ngIf="drivers" [ngClass]="{'hide-tag':!drivers}" class="collapsible" data-collapsible="accordion">
         <li (click)="setCollapse();" *ngFor="let driver of drivers | contentFilter:filt_selector:filt; let i=index;">
           <div (click)="getDriverResults(driver.Driver.driverId)" class="collapsible-wrapp valign-wrapper collapsible-header">
-            <span class="driver-pos">{{driver.position}}º</span><span class="driver-points">{{driver.points}}</span><span class="driver-name">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</span><span class="constructor-name">{{driver.Constructors[0].name}}</span><span class="driver-wins">{{driver.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
+            <span class="driver-pos">{{driver.position}}º</span><span class="driver-points">{{driver.points}}</span><span class="driver-name">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</span><span class="hide-on-small-only constructor-name">{{driver.Constructors[0].name}}</span><span class="driver-wins">{{driver.wins}}</span><span class="hide-on-small-only pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
           </div>
           <div class="collapsible-body">
             <div class="row">

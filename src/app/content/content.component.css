@@ -24,7 +24,7 @@ span.race-date, span.race-name {
 }
 
 span.race-name {
-	min-width: 250px;
+	min-width: 15%;
 }
 
 span.race-date {

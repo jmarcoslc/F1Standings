@@ -18,7 +18,7 @@
         <li (click)="setCollapse();" *ngFor="let gp of races | contentFilter:filt_selector:filt; let i=index;">
           <div (click)="getRaceInfo(i+1)" class="collapsible-wrapp valign-wrapper collapsible-header">
             <span class="valign flag"><img *ngIf="gp.Circuit.Location.country=='UAE'" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Abu_Dhabi.svg"><img *ngIf="gp.Circuit.Location.country!='UAE'" src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country.replace('UK','United_Kingdom').replace('USA','United_States')}}.jpg"></span><span class="race-name">{{gp.raceName}}</span>
-            <span class="race-info-icon"><i class="right large material-icons">info_outline</i></span>
+            <span class="hide-on-small-only race-info-icon"><i class="right large material-icons">info_outline</i></span>
           </div>
           <div class="collapsible-body">
             <div class="row">

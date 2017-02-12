@@ -17,7 +17,7 @@
       <ul *ngIf="teams" [ngClass]="{'hide-tag':!teams}" class="collapsible" data-collapsible="accordion">
         <li (click)="setCollapse();" *ngFor="let team of teams | contentFilter:filt_selector:filt; let i=index;">
           <div (click)="getTeamResults(team.Constructor.constructorId)" class="collapsible-wrapp valign-wrapper collapsible-header">
-            <span class="team-pos">{{team.position}}º</span><span class="team-points">{{team.points}}</span><span class="team-name"><!-- <img src="https://www.formula1.com/content/fom-website/en/championship/teams/{{team.Constructor.name.replace(' ', '-').replace('-F1 Team', '').replace('-Marussia', '')}}/_jcr_content/teamCar.img.jpg">  -->{{team.Constructor.name}}</span><span class="driver-wins">{{team.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
+            <span class="team-pos">{{team.position}}º</span><span class="team-points">{{team.points}}</span><span class="team-name"><!-- <img src="https://www.formula1.com/content/fom-website/en/championship/teams/{{team.Constructor.name.replace(' ', '-').replace('-F1 Team', '').replace('-Marussia', '')}}/_jcr_content/teamCar.img.jpg">  -->{{team.Constructor.name}}</span><span class="driver-wins">{{team.wins}}</span><span class="hide-on-small-only pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
           </div>
           <div class="collapsible-body">
             <div class="row">

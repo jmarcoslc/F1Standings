@@ -2,11 +2,9 @@
 	<div class="row">
 		<div class="input-field col s12 m6 l6">
           <input (keydown.Enter)="setNewSeason()" [(ngModel)]="current_season" class="active" placeholder="Introduce una temporada" min="{{min_season_number}}" max="{{max_season_number}}" type="number" value="{{current_season}}">
-          <label for="season_filter">Filtrar por temporada</label>
         </div>
         <div class="input-field col s12 m6 l6">
           <input (keydown.Enter)="setNewFilterTerm()" [(ngModel)]="filtr_term" class="active" value="" type="text" placeholder="Introduce un término de filtro">
-          <label for="term_filter">Filtrar por término</label>
         </div>
 	</div>
 </div>
