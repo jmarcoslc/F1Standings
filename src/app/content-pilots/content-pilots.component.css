@@ -1,0 +1,56 @@
+.hide-tag {
+	display: none;
+}
+
+.driver-pos {
+	display: inline-block;
+	min-width: 10%;
+	margin-left: 15px;
+}
+
+.driver-points {
+	display: inline-block;
+	margin-left: 15px;
+	min-width: 12%;
+}
+
+.driver-name {
+	display: inline-block;
+	margin-left: 15px;
+	min-width: 25%;
+}
+
+.constructor-name {
+	display: inline-block;
+	min-width: 20%;
+	margin-left: 15px;
+}
+
+.driver-wins {
+	display: inline-block;
+	min-width: 10%;
+	margin-left: 15px;
+}
+
+.collapsible-body .row {
+	margin-bottom: 0px;
+}
+
+.flag {
+	display: inline-block;
+	top: 5px;
+	position: relative;
+	margin-right: 20px;
+}
+
+.flag img {
+	width: 33px;
+	height: 20px;
+	border: 1px solid #EEE;
+	border-radius: 2px;
+}
+
+.collap-head, .collap-head .collapsible-header {
+	border: 0px !important;
+	cursor: default;
+}

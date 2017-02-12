@@ -1,0 +1,69 @@
+<app-filter></app-filter>
+<div class="container">
+  <div class="row">
+      <div *ngIf="!races" class="grey lighten-3 progress">
+        <div class="red darken-4 indeterminate"></div>
+      </div>
+      <ul [ngClass]="{'hide-tag':!races}" class="collapsible collap-head">
+        <li>
+          <div class="white-text grey darken-4 collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="race-name">Gran premio</span>
+          </div>
+        </li>
+      </ul>
+      <ul [ngClass]="{'hide-tag':!races}" class="collapsible" data-collapsible="accordion">
+        <li *ngFor="let gp of races; let i=index;">
+          <div (click)="getRaceInfo(i+1)" class="collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="valign flag"><img src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country}}.jpg"></span><span class="race-name">{{gp.raceName}}</span>
+            <span class="race-info-icon"><i class="right large material-icons">info_outline</i></span>
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s12 center">
+                <div *ngIf="!race_info" class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="race_info" class="race-info col s12">
+                  <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th data-field="position">Posición</th>
+                          <th data-field="pilot_name">Piloto</th>
+                          <th data-field="team">Equipo</th>
+                          <th data-field="time">Tiempo</th>
+                          <th data-field="time">Vuelta rápida</th>
+                          <th data-field="laps">Vueltas</th>
+                          <th data-field="laps">Puntos</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let pilot of race_info; let i=index;" [ngClass]="{'p1':pilot.position == 1,'p2':pilot.position == 2,'p3':pilot.position == 3}">
+                        <td>{{pilot.position}}</td>
+                        <td>{{pilot.Driver.givenName}} {{pilot.Driver.familyName}}</td>
+                        <td>{{pilot.Constructor.name}}</td>
+                        <td *ngIf="!pilot.Time">{{pilot.status}}</td>
+                        <td *ngIf="pilot.Time">{{pilot.Time.time}}</td>
+                        <td *ngIf="!pilot.FastestLap">0</td>
+                        <td *ngIf="pilot.FastestLap">{{pilot.FastestLap.Time.time}}</td>
+                        <td>{{pilot.laps}}</td>
+                        <td>+{{pilot.points}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>

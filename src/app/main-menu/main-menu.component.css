@@ -1,0 +1,11 @@
+#main-menu .active{
+	background-color: #424242;
+}
+
+#main-menu li:hover {
+	background-color: #424242;
+}
+
+#main-menu .brand-logo img {
+	max-width: 145px; 
+}

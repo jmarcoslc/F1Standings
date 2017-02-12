@@ -1,0 +1,66 @@
+<app-filter></app-filter>
+<div class="container">
+  <div class="row">
+      <div *ngIf="!drivers" class="grey lighten-3 progress">
+        <div class="red darken-4 indeterminate"></div>
+      </div>
+      <ul [ngClass]="{'hide-tag':!drivers}" class="collapsible collap-head">
+        <li>
+          <div class="white-text grey darken-4 collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="driver-pos">Posición</span><span class="driver-points">Puntos</span><span class="driver-name">Piloto</span><span class="constructor-name">Equipo</span><span class="driver-wins">Victorias</span>
+          </div>
+        </li>
+      </ul>
+      <ul [ngClass]="{'hide-tag':!drivers}" class="collapsible" data-collapsible="accordion">
+        <li *ngFor="let driver of drivers; let i=index;">
+          <div (click)="getDriverResults(driver.Driver.driverId)" class="collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="driver-pos">{{driver.position}}º</span><span class="driver-points">{{driver.points}}</span><span class="driver-name">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</span><span class="constructor-name">{{driver.Constructors[0].name}}</span><span class="driver-wins">{{driver.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s12 center">
+                <div *ngIf="!driver_results" class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="driver_results" class="driver-info col s12">
+                  <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th data-field="gp">Gran premio</th>
+                          <th data-field="position">Posición</th>
+                          <th data-field="points">Puntos</th>
+                          <th data-field="laps">Vueltas</th>
+                          <th data-field="time">Tiempo</th>
+                          <th data-field="time">Vuelta rápida</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let gp of driver_results; let i=index;">
+                        <td><span class="flag"><img src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country}}.jpg"></span>{{gp.raceName}}</td>
+                        <td>{{gp.Results[0].position}}</td>
+                        <td>+{{gp.Results[0].points}}</td>
+                        <td>{{gp.Results[0].laps}}</td>
+                        <td *ngIf="!gp.Results[0].Time">{{gp.Results[0].status}}</td>
+                        <td *ngIf="gp.Results[0].Time">{{gp.Results[0].Time.time}}</td>
+                        <td *ngIf="gp.Results[0].FastestLap">{{gp.Results[0].FastestLap.Time.time}}</td>
+                        <td *ngIf="!gp.Results[0].FastestLap">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+/*ul.popout li {
+	margin-bottom: 10px;
+}
+*/
+.hide-tag {
+	display: none;
+}
+span.flag {
+	display: inline-block;
+	top: 5px;
+	position: relative;
+	margin-right: 20px;
+}
+
+span.flag img {
+	width: 33px;
+	height: 20px;
+	border: 1px solid #EEE;
+	border-radius: 2px;
+}
+
+span.race-date, span.race-name {
+	display: inline-block;
+}
+
+span.race-name {
+	min-width: 250px;
+}
+
+span.race-date {
+	float: right;
+	text-transform: 
+}
+
+.race-info .p1 {
+	/*color: #4caf50;*/
+	font-size: 1.75em;
+}
+
+.race-info .p2 {
+	/*color: #388e3c;*/
+	font-size: 1.50em;
+}
+
+.race-info .p3 {
+	/*color: #1b5e20;*/
+	font-size: 1.25em;
+}
+
+.collapsible-body {
+	background-color: #FFF;
+}
+
+.collapsible-body .row {
+	margin-bottom: 0px;
+}
+
+.collap-head, .collap-head .collapsible-header {
+	border: 0px !important;
+	cursor: default;
+}

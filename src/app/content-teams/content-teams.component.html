@@ -1,0 +1,69 @@
+<app-filter></app-filter>
+<div class="container">
+  <div class="row">
+      <div *ngIf="!teams" class="grey lighten-3 progress">
+        <div class="red darken-4 indeterminate"></div>
+      </div>
+      <ul [ngClass]="{'hide-tag':!teams}" class="collapsible collap-head">
+        <li>
+          <div class="white-text grey darken-4 collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="team-pos">Posición</span><span class="team-points">Puntos</span><span class="team-name">Nombre</span><span class="driver-wins">Victorias</span>
+          </div>
+        </li>
+      </ul>
+      <ul [ngClass]="{'hide-tag':!teams}" class="collapsible" data-collapsible="accordion">
+        <li *ngFor="let team of teams; let i=index;">
+          <div (click)="getTeamResults(team.Constructor.constructorId)" class="collapsible-wrapp valign-wrapper collapsible-header">
+            <span class="team-pos">{{team.position}}º</span><span class="team-points">{{team.points}}</span><span class="team-name">{{team.Constructor.name}}</span><span class="driver-wins">{{team.wins}}</span><span class="pilot-info-icon"><i class="right large material-icons">info_outline</i></span>
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s12 center">
+                <div *ngIf="!team_results" class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="team_results" class="team-info col s12">
+                <div *ngFor="let gp of team_results; let i=index;" class="table-wrap">
+                <h3><span class="flag"><img src="http://www.sciencekids.co.nz/images/pictures/flags96/{{gp.Circuit.Location.country}}.jpg"></span>{{gp.raceName}}</h3>
+                  <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th data-field="driver">Piloto</th>
+                          <th data-field="position">Posición</th>
+                          <th data-field="points">Puntos</th>
+                          <th data-field="laps">Vueltas</th>
+                          <th data-field="time">Tiempo</th>
+                          <th data-field="time">Vuelta rápida</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let driver of gp.Results; let i=index;">
+                        <td>{{driver.Driver.givenName}} {{driver.Driver.familyName}}</td>
+                        <td>{{driver.position}}</td>
+                        <td>+{{driver.points}}</td>
+                        <td>{{driver.laps}}</td>
+                        <td *ngIf="!driver.Time">{{driver.status}}</td>
+                        <td *ngIf="driver.Time">{{driver.Time.time}}</td>
+                        <td *ngIf="driver.FastestLap">{{driver.FastestLap.Time.time}}</td>
+                        <td *ngIf="!driver.FastestLap">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>
