@@ -1,12 +1,12 @@
 # F1Standings
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3 and [materializecss](http://materializecss.com/) versión 0.98.0
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3 and [materializecss](http://materializecss.com/) versión 0.98.0.
 
 ## Live preview
-Check de live preview [right here](http://f1standings.marcosleyva.tk/)
+Check de live preview [right here](http://f1standings.marcosleyva.tk/).
 
 ## API
-This project works thanks to [Ergast Developer API](http://ergast.com/mrd/)
+This project works thanks to [Ergast Developer API](http://ergast.com/mrd/).
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
