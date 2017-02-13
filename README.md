@@ -5,6 +5,9 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## Live preview
 Check de live preview [right here](http://f1standings.marcosleyva.tk/)
 
+## API
+This project works thanks to [Ergast Developer API](http://ergast.com/mrd/)
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
