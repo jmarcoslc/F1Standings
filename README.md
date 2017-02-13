@@ -1,6 +1,9 @@
-# FormulaOne
+# F1Standings
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3 and [materializecss](http://materializecss.com/) versión 0.98.0
+
+## Live preview
+Check de live preview [right here](http://f1standings.marcosleyva.tk/)
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
