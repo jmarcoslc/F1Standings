@@ -3,7 +3,7 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3 and [materializecss](http://materializecss.com/) versión 0.98.0.
 
 ## Live preview
-Check de live preview [right here](http://f1standings.marcosleyva.tk/).
+Check the live preview [right here](http://formula1nfo.tk).
 
 ## API
 This project works thanks to [Ergast Developer API](http://ergast.com/mrd/).
@@ -35,3 +35,7 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Contact
+
+if you have any doubt, you can contact with me via email: jmarcoslc@gmail.com
